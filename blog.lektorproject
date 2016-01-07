@@ -1,0 +1,5 @@
+[project]
+name = blog
+
+[servers.ghpages]
+target = ghpages+https://alephmelo/blog
