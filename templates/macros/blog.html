@@ -18,10 +18,16 @@
             </p>
             {% endif %}
         </header>
+        {% if from_index %}
         <div class="post-description">
+            <p>
+                {{ post.summary }}
+            </p>
+        {% else %} 
             <p>
                 {{ post.body }}
             </p>
+        {% endif %}
         </div>
     </section>
 </div>
