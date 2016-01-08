@@ -10,7 +10,7 @@
             {% endif %}
             <p class="post-meta">
             {% if post.twitter_handle %}
-                By <a href="https://twitter.com/{{ post.twitter_handle}}" class="post-author">{{ post.author or post.twitter_handle }}</a> on {{ post.pub_date }} under <a class="post-category post-category-{{post.category}}" href="#">{{post.category}}</a>
+                By <a href="https://twitter.com/{{ post.twitter_handle}}" class="post-author">{{ post.author or post.twitter_handle }}</a> on {{ post.pub_date }} under <a class="post-category post-category-{{post.category|lower}}" href="#">{{post.category}}</a>
             </p>
             <p class="post-meta">
             {% else %} 
@@ -18,8 +18,9 @@
             </p>
             {% endif %}
         </header>
-        {% if from_index %}
+        
         <div class="post-description">
+        {% if from_index %}
             <p>
                 {{ post.summary }}
             </p>
