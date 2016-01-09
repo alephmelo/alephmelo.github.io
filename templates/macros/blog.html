@@ -14,7 +14,7 @@
             </p>
             <p class="post-meta">
             {% else %} 
-                By <a href="https://twitter.com/{{ post.twitter_handle}}" class="post-author">{{ post.author }}</a> on {{ post.pub_date }} under <a class="post-category post-category-design" href="#">CSS</a>
+                By <a href="https://twitter.com/{{ post.twitter_handle}}" class="post-author">{{ post.author }}</a> on {{ post.pub_date }} under <a class="post-category post-category-{{post.category|lower}}" href="#">{{post.category}}</a>
             </p>
             {% endif %}
         </header>
