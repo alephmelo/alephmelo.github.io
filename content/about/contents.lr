@@ -1,0 +1,13 @@
+_slug: /about/
+---
+_model: about
+---
+_discoverable: no
+---
+body: A test about me.
+---
+title: Aleph Melo
+---
+_template: about.html
+---
+_hidden: yes

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="posts">
+    <section class="post">
+        <header class="post-header">
+            <h2 class="post-title">{{ this.title }}</h2>
+            <p class="post-meta">
+        </header>
+        
+        <div class="post-description">
+            <p>
+                {{ this.body }}
+            </p>
+        </div>
+    </section>
+</div>
+{% endblock %}
