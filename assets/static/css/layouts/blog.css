@@ -114,6 +114,10 @@ h3 {
     margin: 0;
 }
 
+.post-pagionation {
+    text-align: center;
+}
+
 .post-category {
     margin: 0 0.1em;
     padding: 0.3em 1em;

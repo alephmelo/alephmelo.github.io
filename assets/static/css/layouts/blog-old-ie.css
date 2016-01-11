@@ -119,6 +119,9 @@ h3 {
     line-height: 1.8em;
 }
 
+.post-pagionation {
+    text-align: center;
+}
 .post-meta {
     color: #999;
     font-size: 90%;
