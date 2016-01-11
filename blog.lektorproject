@@ -2,4 +2,4 @@
 name = blog
 
 [servers.ghpages]
-target = ghpages+https://alephmelo/blog
+target = ghpages+https://alephmelo/alephmelo.github.io
