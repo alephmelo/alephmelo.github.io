@@ -1,5 +1,0 @@
-[project]
-name = blog
-
-[servers.ghpages]
-target = ghpages+https://alephmelo/alephmelo.github.io
