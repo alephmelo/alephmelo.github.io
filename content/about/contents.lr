@@ -2,7 +2,7 @@ _slug: /about/
 ---
 _model: about
 ---
-_discoverable: no
+_discoverable: false
 ---
 body: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -15,4 +15,4 @@ title: Aleph Melo
 ---
 _template: about.html
 ---
-_hidden: yes
+_hidden: true

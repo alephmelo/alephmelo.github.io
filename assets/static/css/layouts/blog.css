@@ -119,22 +119,22 @@ h3 {
 }
 
 .post-category {
-    margin: 0 0.1em;
+    margin: 0 0.2em;
     padding: 0.3em 1em;
     color: #fff;
     background: #999;
     font-size: 80%;
 }
-    .post-category-design {
-        background: #5aba59;
+    .post-category-pyhton {
+        background: #FDC332;
     }
-    .post-category-pure {
+    .post-category-dev {
         background: #4d85d1;
     }
-    .post-category-yui {
+    .post-category-data {
         background: #8156a7;
     }
-    .post-category-js {
+    .post-category-mobile {
         background: #df2d4f;
     }
 
