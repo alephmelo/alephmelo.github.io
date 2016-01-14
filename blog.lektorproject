@@ -3,3 +3,6 @@ name = blog
 
 [servers.ghpages]
 target = ghpages+https://alephmelo/alephmelo.github.io
+
+[packages]
+lektor-disqus-comments = 0.1
