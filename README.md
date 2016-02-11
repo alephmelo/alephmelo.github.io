@@ -4,3 +4,4 @@ My personal Lektor-powered blog.
 ## To-do
 - [ ] Fix size
 - [ ] First post
+- [ ] Analytics plugin
