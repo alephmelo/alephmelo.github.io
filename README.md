@@ -5,3 +5,4 @@ My personal Lektor-powered blog.
 - [ ] Fix size
 - [ ] First post
 - [ ] Analytics plugin
+- [ ] Social plugins
