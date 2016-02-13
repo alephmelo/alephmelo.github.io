@@ -135,8 +135,9 @@ h3 {
     line-height: 1.8em;
 }
 .post-meta {
+    font-family: 'sinkin-light';
     color: #999;
-    font-size: 90%;
+    font-size: 80%;
     margin: 0;
 }
 
