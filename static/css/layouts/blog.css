@@ -68,10 +68,17 @@ h3 {
     margin: 0;
 }
 .brand-title {
-    text-transform: uppercase;
+    font-family: 'sinkin-medium';
 }
+
+.brand-title a {
+    color: #FFF;
+}
+
 .brand-tagline {
     font-weight: 300;
+    font-family: 'sinkin-light';
+    font-size: 90%;
     color: #EFEFEF;
 }
 
@@ -87,13 +94,16 @@ h3 {
 }
 .nav-item a {
     background: transparent;
-    border: 2px solid #FFF;
+    border: 1px solid #FFF;
     color: #fff;
     margin-top: 1em;
     letter-spacing: 0.05em;
-    text-transform: uppercase;
+    text-transform: lowercase;
+    font-family: 'sinkin-light';
     font-size: 85%;
-    width: 105px;
+    width: 107px;
+    height: 26px;
+    padding: initial;
 }
 .nav-item a:hover,
 .nav-item a:focus {
@@ -135,8 +145,9 @@ h3 {
     line-height: 1.8em;
 }
 .post-meta {
+    font-family: 'sinkin-light';
     color: #999;
-    font-size: 90%;
+    font-size: 80%;
     margin: 0;
 }
 
@@ -195,7 +206,7 @@ h3 {
 
     .header {
         margin: 80% 2em 0;
-        text-align: right;
+        text-align: center;
     }
 
     .sidebar {
