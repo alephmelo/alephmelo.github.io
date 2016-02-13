@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+<title>Aleph Melo</title>
+<link rel="stylesheet" href="../static/css/layouts/pure-min.css">
+<link rel="stylesheet" href="../static/pygments.css">
+
+<!--[if lte IE 8]>
+  
+    <link rel="stylesheet" href="../static/css/layouts/grids-responsive-old-ie-min.css">
+  
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  
+    <link rel="stylesheet" href="../static/css/layouts/grids-responsive-min.css">
+  
+<!--<![endif]-->  
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="../static/css/layouts/blog-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="../static/css/layouts/blog.css">
+    <!--<![endif]-->
+</head>
+<body>
+<div id="layout" class="pure-g">
+  <div class="sidebar pure-u-1 pure-u-md-1-4">
+      <div class="header">
+          <h1 class="brand-title"><a href="/" id="home-title">Aleph Melo</a></h1>
+          <h2 class="brand-tagline">developer</h2>
+          
+          <nav class="nav">
+              <ul class="nav-list">
+                  <li class="nav-item">
+                      <a class="pure-button" href="/projects">Projects</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="pure-button" href="/about">About</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="pure-button" href="http://twitter.com/Alephbreno">Twitter</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="pure-button" href="http://github.com/alephmelo">GitHub</a>
+                  </li>
+              </ul>
+          </nav>
+      <!--    
+      <div class="footer">
+          <div class="pure-menu pure-menu-horizontal">
+              <ul>
+                  <li class="pure-menu-item"><a href="http://alephmelo.github.io/about" class="pure-menu-link">About</a></li>
+                  <li class="pure-menu-item"><a href="http://twitter.com/Alephbreno" class="pure-menu-link">Twitter</a></li>
+                  <li class="pure-menu-item"><a href="http://github.com/alephmelo" class="pure-menu-link">GitHub</a></li>
+              </ul>
+          </div>
+      </div> !-->
+      </div>
+  </div>
+  <div class="content pure-u-1 pure-u-md-3-4">
+  <!-- <h1 class="content-subhead">Recent posts</h1> !-->
+  
+  
+
+<div class="posts">
+    <section class="post">
+        <header class="post-header">
+            
+            <h2 class="post-title">Clustering by compression: Your Own Data Mining Tool</h2>
+            
+            <p class="post-meta">
+                By 
+                <a href="https://twitter.com/Alephbreno" class="post-author">Aleph Melo</a>
+                 on 2016-02-13 under 
+                 
+                 <a class="post-tag post-tag-python" href="#">python</a>
+                 
+                 <a class="post-tag post-tag-dev" href="#">dev</a>
+                 
+                 <a class="post-tag post-tag-data-science" href="#">data-science</a>
+                 
+            </p>
+        </header>
+        
+        <div class="post-description">
+         
+            <p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id dictum risus, a rutrum urna. Suspendisse varius nunc nulla, ut finibus velit fermentum sit amet. Cras sit amet lobortis tortor. Aliquam dictum, nibh nec blandit ullamcorper, dui dolor tristique elit, in pellentesque quam ipsum vel enim. Morbi nec porta felis. Vestibulum condimentum justo a lorem fermentum, vel consequat nisl malesuada. Donec diam elit, ornare sed magna non, aliquet fermentum urna. Fusce sagittis nisl lectus, ut pharetra nulla convallis interdum. Fusce at lacus vitae ipsum blandit faucibus vitae eget dolor. Nullam sit amet convallis nisl. Aliquam porttitor elit et consectetur tempus. Donec iaculis dui quis diam suscipit, malesuada egestas nunc viverra.</p>
+<p>Etiam consectetur eu augue a lacinia. Vestibulum at auctor est, pellentesque scelerisque est. Nullam a placerat magna. Sed mattis enim molestie bibendum mattis. Aenean ullamcorper purus laoreet risus posuere imperdiet. Quisque quis neque eleifend, ultricies dolor ac, consequat metus. Etiam tristique auctor nisl, nec bibendum orci accumsan laoreet. Phasellus rutrum, odio id mollis pharetra, ante ante elementum purus, sed rhoncus nibh urna in nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi lacinia varius luctus. Aliquam urna orci, commodo et tempor consequat, pulvinar sit amet massa. Nulla vel ullamcorper urna.</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">lzma</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c1"># file 1 of any type</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c1"># file 2 of the same type as file 1</span>
+<span class="n">x_y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>  <span class="c1"># the concatenation of files</span>
+
+<span class="n">x_comp</span> <span class="o">=</span> <span class="n">lzma</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># compress file 1</span>
+<span class="n">y_comp</span> <span class="o">=</span> <span class="n">lzma</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># compress file 2</span>
+<span class="n">x_y_comp</span> <span class="o">=</span> <span class="n">lzma</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">x_y</span><span class="p">)</span>  <span class="c1"># compress file concatenated</span>
+
+<span class="c1"># print len() of each file</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_comp</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_comp</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_y_comp</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># magic happens here</span>
+<span class="n">ncd</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_y_comp</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_comp</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_comp</span><span class="p">)))</span> <span class="o">/</span> \
+    <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_comp</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_comp</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">ncd</span><span class="p">)</span>
+</pre></div>
+<p>Phasellus lobortis orci sit amet dui facilisis scelerisque. Quisque tellus libero, blandit euismod justo non, venenatis porta tellus. Aliquam iaculis justo sed volutpat dignissim. Etiam ac hendrerit mauris, ut ullamcorper nisl. Cras a purus rutrum sapien accumsan malesuada eu vitae risus. Fusce fermentum sapien vitae nulla ultrices ornare. Nam et purus et mi convallis lobortis.</p>
+<p>Vestibulum consequat, ante lobortis tempus imperdiet, dui elit interdum lorem, ut posuere enim lorem vel lorem. Nam viverra lectus id nulla consectetur vestibulum. Nam interdum justo justo, vitae pellentesque velit maximus vitae. Curabitur porta maximus accumsan. Etiam eleifend eget dui at pretium. Curabitur a nibh ut mauris volutpat ullamcorper quis sed sapien. Nunc nec pulvinar ex. Morbi id sapien vel dolor rutrum mattis. Suspendisse pulvinar ipsum quis porta condimentum. Donec ut tincidunt justo, sed maximus dolor. Nullam consequat faucibus arcu ac tempor. Aenean scelerisque augue in dolor pellentesque, in rhoncus augue suscipit.</p>
+<p>Sed volutpat congue pretium. Vivamus malesuada lacus a lorem tincidunt suscipit non a augue. Praesent vitae viverra massa, eu egestas orci. Etiam et ligula rutrum, gravida sem id, sodales massa. Ut sed purus at dolor vestibulum dignissim. Fusce nisi nisi, pulvinar nec leo a, dapibus pretium massa. Praesent turpis nibh, tincidunt ac velit ac, gravida pharetra metus. Proin egestas sit amet orci sed aliquam. Quisque non gravida sapien, nec gravida lacus. Sed varius eros sit amet vestibulum rutrum. Duis id nibh eros. Nullam egestas quam at ex sollicitudin, pretium pretium orci mollis. Aenean posuere lacinia augue ut lacinia.</p>
+
+            </p>
+        
+        </div>
+    </section>
+</div>
+
+  <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/clustering-by-compression-your-own-data-mining-tool"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//alephmelo.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
+
+  </div>
+
+</div>
+</body>
+</html>

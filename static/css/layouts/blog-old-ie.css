@@ -128,7 +128,7 @@ h3 {
     margin: 0;
 }
 
-.post-category {
+.post-tag {
     margin: 0 0.1em;
     padding: 0.3em 1em;
     color: #fff;
@@ -136,19 +136,19 @@ h3 {
     font-size: 80%;
 }
 
-.post-category-design {
+.post-tag-design {
     background: #5aba59;
 }
 
-.post-category-pure {
+.post-tag-pure {
     background: #4d85d1;
 }
 
-.post-category-yui {
+.post-tag-yui {
     background: #8156a7;
 }
 
-.post-category-js {
+.post-tag-js {
     background: #df2d4f;
 }
 

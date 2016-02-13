@@ -174,23 +174,23 @@ pre {
     text-align: center;
 }
 
-.post-category {
+.post-tag {
     margin: 0 0.2em;
     padding: 0.3em 1em;
     color: #fff;
     background: #999;
     font-size: 80%;
 }
-    .post-category-pyhton {
+    .post-tag-python {
         background: #FDC332;
     }
-    .post-category-dev {
+    .post-tag-dev {
         background: #4d85d1;
     }
-    .post-category-data {
+    .post-tag-data-science {
         background: #8156a7;
     }
-    .post-category-mobile {
+    .post-tag-mobile {
         background: #df2d4f;
     }
 
