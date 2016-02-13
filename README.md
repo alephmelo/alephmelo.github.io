@@ -2,7 +2,7 @@
 My personal Lektor-powered blog.
 
 ## To-do
-- [ ] Fix size
+- [x] Fix size
 - [ ] First post
 - [ ] Analytics plugin
 - [ ] Social plugins
