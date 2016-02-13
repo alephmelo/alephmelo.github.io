@@ -1,0 +1,51 @@
+title: Clustering by compression: Your Own Data Mining Tool
+---
+author: Aleph Melo
+---
+category: data
+---
+pub_date: 2016-02-13
+---
+twitter_handle: Alephbreno
+---
+tags:
+
+python
+dev
+data-science
+---
+body:
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id dictum risus, a rutrum urna. Suspendisse varius nunc nulla, ut finibus velit fermentum sit amet. Cras sit amet lobortis tortor. Aliquam dictum, nibh nec blandit ullamcorper, dui dolor tristique elit, in pellentesque quam ipsum vel enim. Morbi nec porta felis. Vestibulum condimentum justo a lorem fermentum, vel consequat nisl malesuada. Donec diam elit, ornare sed magna non, aliquet fermentum urna. Fusce sagittis nisl lectus, ut pharetra nulla convallis interdum. Fusce at lacus vitae ipsum blandit faucibus vitae eget dolor. Nullam sit amet convallis nisl. Aliquam porttitor elit et consectetur tempus. Donec iaculis dui quis diam suscipit, malesuada egestas nunc viverra.
+
+Etiam consectetur eu augue a lacinia. Vestibulum at auctor est, pellentesque scelerisque est. Nullam a placerat magna. Sed mattis enim molestie bibendum mattis. Aenean ullamcorper purus laoreet risus posuere imperdiet. Quisque quis neque eleifend, ultricies dolor ac, consequat metus. Etiam tristique auctor nisl, nec bibendum orci accumsan laoreet. Phasellus rutrum, odio id mollis pharetra, ante ante elementum purus, sed rhoncus nibh urna in nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi lacinia varius luctus. Aliquam urna orci, commodo et tempor consequat, pulvinar sit amet massa. Nulla vel ullamcorper urna.
+
+```python
+import lzma
+import sys
+
+x = open(sys.argv[1], 'rb').read()  # file 1 of any type
+y = open(sys.argv[2], 'rb').read()  # file 2 of the same type as file 1
+x_y = x + y  # the concatenation of files
+
+x_comp = lzma.compress(x)  # compress file 1
+y_comp = lzma.compress(y)  # compress file 2
+x_y_comp = lzma.compress(x_y)  # compress file concatenated
+
+# print len() of each file
+print(len(x_comp), len(y_comp), len(x_y_comp), sep=' ', end='\n')
+
+# magic happens here
+ncd = (len(x_y_comp) - min(len(x_comp), len(y_comp))) / \
+    max(len(x_comp), len(y_comp))
+
+print(ncd)
+```
+
+Phasellus lobortis orci sit amet dui facilisis scelerisque. Quisque tellus libero, blandit euismod justo non, venenatis porta tellus. Aliquam iaculis justo sed volutpat dignissim. Etiam ac hendrerit mauris, ut ullamcorper nisl. Cras a purus rutrum sapien accumsan malesuada eu vitae risus. Fusce fermentum sapien vitae nulla ultrices ornare. Nam et purus et mi convallis lobortis.
+
+Vestibulum consequat, ante lobortis tempus imperdiet, dui elit interdum lorem, ut posuere enim lorem vel lorem. Nam viverra lectus id nulla consectetur vestibulum. Nam interdum justo justo, vitae pellentesque velit maximus vitae. Curabitur porta maximus accumsan. Etiam eleifend eget dui at pretium. Curabitur a nibh ut mauris volutpat ullamcorper quis sed sapien. Nunc nec pulvinar ex. Morbi id sapien vel dolor rutrum mattis. Suspendisse pulvinar ipsum quis porta condimentum. Donec ut tincidunt justo, sed maximus dolor. Nullam consequat faucibus arcu ac tempor. Aenean scelerisque augue in dolor pellentesque, in rhoncus augue suscipit.
+
+Sed volutpat congue pretium. Vivamus malesuada lacus a lorem tincidunt suscipit non a augue. Praesent vitae viverra massa, eu egestas orci. Etiam et ligula rutrum, gravida sem id, sodales massa. Ut sed purus at dolor vestibulum dignissim. Fusce nisi nisi, pulvinar nec leo a, dapibus pretium massa. Praesent turpis nibh, tincidunt ac velit ac, gravida pharetra metus. Proin egestas sit amet orci sed aliquam. Quisque non gravida sapien, nec gravida lacus. Sed varius eros sit amet vestibulum rutrum. Duis id nibh eros. Nullam egestas quam at ex sollicitudin, pretium pretium orci mollis. Aenean posuere lacinia augue ut lacinia.
+---
+summary: Etiam consectetur eu augue a lacinia. Vestibulum at auctor est, pellentesque scelerisque est. Nullam a placerat magna. Sed mattis enim molestie bibendum mattis. Aenean ullamcorper purus laoreet risus posuere imperdiet. Quisque quis neque eleifend, ultricies dolor ac, consequat metus. Etiam tristique auctor nisl, nec bibendum orci accumsan laoreet. Phasellus rutrum, odio id mollis pharetra, ante ante elementum purus, sed rhoncus nibh urna in nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi lacinia varius luctus. Aliquam urna orci, commodo et tempor consequat, pulvinar sit amet massa. Nulla vel ullamcorper urna.
