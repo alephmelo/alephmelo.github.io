@@ -1,0 +1,44 @@
+title: #PythonMap - Command-Line Basics
+---
+author: Aleph Melo
+---
+body:
+
+# Introduction
+First things first... what is Python Map? Who am I? Where are we going? Well, Python Map is an idea of path of small subjects that a Full Stack Developer should feel comfortable in working with or at least have had a small glance over the subject. But you might be wondering who said it, where it is written that you should follow this path to become a full stack python developer and so forth. One of the many great things about open-source is that the sense of community working for the greater good. People with a huge passion in developing cool things, and this answers the second question, I'm one of those people, passionate about my work, learning, teaching and building cool stuff. So this is where we're going, I'll try to cover in details each of the subjects among the Python Map. I'm a huge fan the philosophy learning by teaching. 
+
+A small disclaimer, I'm not saying that the Python Map it is the only way to become a Full Stack Python developer, the amount of good stuff and subjects out there is tremendous, and feel free to contribute with new topics, fix bugs, english grammar (since it's my second language).
+
+**So let's cut to the chase.**
+
+# Command-line arguments
+Python has a really handy module called `sys`, using this module we can access to any command-line
+arguments via the `sys.argv` which returns a list of the arguments given. 
+
+`test_file.py`
+```python
+#!/usr/bin/python3
+import sys
+
+print('Argument list: ', str(sys.argv))
+print('Argument count: ', len(sys.argv))
+```
+```
+$ python3 test_file.py one two three
+('Argument list: ', "['test_file.py', 'one', 'two', 'three']")
+('Argument count: ', 4)
+```
+---
+pub_date: 2016-02-15
+---
+tags:
+
+python
+dev
+python-map
+---
+twitter_handle: Alephbreno
+---
+summary: First things first... what is Python Map? Who am I? Where are we going? Well, Python Map is an idea of path of small subjects that a full-stack python developer should feel comfortable in working with or at least have had a small glance over the subject. But you might be wondering who said it, where it is written that you should follow this path to become a full stack python developer and so forth.
+---
+_slug: command-line-basics
