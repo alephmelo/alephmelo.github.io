@@ -15,7 +15,7 @@ A small disclaimer, I'm not saying that the Python Map it is the only way to bec
 Python has a really handy module called `sys`, using this module we can access to any command-line
 arguments via the `sys.argv` which returns a list of the arguments given. 
 
-`test_file.py`
+*`test_file.py`*
 ```python
 #!/usr/bin/python3
 import sys
