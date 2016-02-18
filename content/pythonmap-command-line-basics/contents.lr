@@ -3,6 +3,7 @@ title: #PythonMap - Command-Line Basics
 author: Aleph Melo
 ---
 body:
+
 # Command-line arguments
 Python has a really handy module called `sys`, using this module we can access to any command-line
 arguments via the `sys.argv` which returns a list of the arguments given. 
@@ -56,6 +57,8 @@ The `else` part is pretty much self-explanatory.
 
 This kind of parsing is pretty raw, for a better parsing and options there is other python bult-in module called `argparse` that provides many more options and easy ways to parse arguments.
 
+That's it, this was my first post, don't worry I'll try to improve and bring some really cool subjects. If you see an error (specially grammar, since english is my second language), don't hesitate to bring it up and comment so I can fix it. And thank you for reading, cheers. 
+
 # Recommended reading
 
 - [Conditional Expressions](https://docs.python.org/3.5/reference/expressions.html#conditional-expressions)
@@ -72,6 +75,8 @@ python-map
 ---
 twitter_handle: Alephbreno
 ---
-summary: First things first... what is Python Map? Who am I? Where are we going? Well, Python Map is an idea of path of small subjects that a full-stack python developer should feel comfortable in working with or at least have had a small glance over the subject. But you might be wondering who said it, where it is written that you should follow this path to become a full stack python developer and so forth.
+summary:
+
+Python has a really handy module called `sys`, using this module we can access to any command-line arguments via the `sys.argv` which returns a list of the arguments given. 
 ---
 _slug: command-line-basics
