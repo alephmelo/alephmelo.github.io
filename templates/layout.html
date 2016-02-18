@@ -1,27 +1,55 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A layout example that shows off a blog page with a list of posts.">
-<title>Aleph Melo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+  <meta name="description" content="Python developer who loves hacking around, learning and building cool stuff.">
+  <title>{%- if this.title %}{{ this.title }}{%- else %}{{ config['PROJECT'].name }}{%- endif %}</title>
+{%- if this.title %}
+  <meta property="og:title" content="{{ this.title }}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{ this | url(external=True) }}">
+  <meta property="og:description" content="{{ this.description }}">
+{%- else %}
+  <meta property="og:title" content="{{ config['PROJECT'].name }}">
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="{{ config['PROJECT'].url }}">
+  <meta property="og:description" content="{{ config['PROJECT'].description }}">
+{%- endif %}
+  <meta property="og:site_name" content="{{ config['PROJECT'].name }}">
+{%- if this.author %}
+  <meta property="article:author:username" content="{{ this.author }}">
+  <meta name="author" content="{{ this.author }}">
+{%- elif this.title and config['PROJECT'].author %}
+  <meta property="article:author:username" content="{{ config['PROJECT'].author }}">
+  <meta name="author" content="{{ config['PROJECT'].author }}">
+{%- endif %}
+  <meta name="description" content="{% if this.description %}{{ this.description }}{% else %}{{ config['PROJECT'].description }}{% endif %}">
+{%- set keywords %}{%- for keyword in this.tags %}{{ keyword }}{%- if not loop.last %}, {%- endif %}{%- endfor %}{%- endset %}
+{%- set keywords %}{%- if keywords != '' %}{{ keywords }}{%- if config['PROJECT'].keywords %}, {{ config['PROJECT'].keywords }}{%- endif %}{%- else %}{%- if config['PROJECT'].keywords %}{{ config['PROJECT'].keywords }}{%- endif %}{%- endif %}{%- endset %}
+{%- for keyword in this.tags %}
+<meta property="article:tag" content="{{ keyword }}">
+{%- endfor %}
+
+{%- if this.title and config['PROJECT'].keywords %}
+{%- for keyword in config['PROJECT'].keywords.split(',') %}
+<meta property="article:tag" content="{{ keyword | trim }}">
+{%- endfor %}
+{%- endif %}
+<meta name="keywords" content="{{ keywords }}">
+
 <link rel="stylesheet" href="{{ '/static/css/layouts/pure-min.css'|url }}">
 <link rel="stylesheet" href="{{ get_pygments_stylesheet()|url }}">
-
 <!--[if lte IE 8]>
-  
     <link rel="stylesheet" href="{{ '/static/css/layouts/grids-responsive-old-ie-min.css'|url }}">
-  
 <![endif]-->
 <!--[if gt IE 8]><!-->
-  
     <link rel="stylesheet" href="{{ '/static/css/layouts/grids-responsive-min.css'|url }}">
-  
 <!--<![endif]-->  
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="{{ '/static/css/layouts/blog-old-ie.css'|url }}">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="{{ '/static/css/layouts/blog-old-ie.css'|url }}">
+<![endif]-->
+<!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="{{ '/static/css/layouts/blog.css'|url }}">
     <!--<![endif]-->
 </head>
@@ -34,14 +62,6 @@
           
           <nav class="nav">
               <ul class="nav-list">
-              <!--
-                  <li class="nav-item">
-                      <a class="pure-button" href="/projects">Projects</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="pure-button" href="/about">About</a>
-                  </li>
-              !-->
                   <li class="nav-item">
                       <a class="pure-button" href="http://twitter.com/Alephbreno">Twitter</a>
                   </li>
@@ -50,16 +70,6 @@
                   </li>
               </ul>
           </nav>
-      <!--    
-      <div class="footer">
-          <div class="pure-menu pure-menu-horizontal">
-              <ul>
-                  <li class="pure-menu-item"><a href="http://alephmelo.github.io/about" class="pure-menu-link">About</a></li>
-                  <li class="pure-menu-item"><a href="http://twitter.com/Alephbreno" class="pure-menu-link">Twitter</a></li>
-                  <li class="pure-menu-item"><a href="http://github.com/alephmelo" class="pure-menu-link">GitHub</a></li>
-              </ul>
-          </div>
-      </div> !-->
       </div>
   </div>
   <div class="content pure-u-1 pure-u-md-3-4">
@@ -80,4 +90,16 @@
   ga('send', 'pageview');
 
 </script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </html>

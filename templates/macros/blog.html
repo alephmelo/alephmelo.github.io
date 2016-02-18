@@ -7,6 +7,10 @@
             <h2 class="post-title"><a href="{{ post|url }}">{{ post.title }}</a></h2>
             {% else %}
             <h2 class="post-title">{{ post.title }}</h2>
+            <div id="social-container">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-text="{{post.title}}" data-via="Alephbreno" data-hashtags="dev" data-dnt="true">Tweet</a>
+            <div class="fb-share-button" data-href="{{ post|url}}" data-layout="button_count"></div>
+            </div>
             {% endif %}
             <p class="post-meta">
                 By 

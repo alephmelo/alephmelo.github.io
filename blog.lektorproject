@@ -1,5 +1,11 @@
 [project]
-name = blog
+name = Aleph Melo
+description =  Blog about programming/development, python, iOS and a bunch of others cool stuffs by Aleph Melo
+url = http://alephmelo.github.io
+url_style = absolute
+language = en-US
+keywords = dev, software, programming, blog, python
+author = Aleph Melo
 
 [servers.ghpages]
 target = ghpages+https://alephmelo/alephmelo.github.io
