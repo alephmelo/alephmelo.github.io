@@ -1,28 +1,31 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A layout example that shows off a blog page with a list of posts.">
-<title>Aleph Melo</title>
-<link rel="stylesheet" href="./static/css/layouts/pure-min.css">
-<link rel="stylesheet" href="./static/pygments.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+  <meta name="description" content="Python developer who loves hacking around, learning and building cool stuff.">
+  <title>Aleph Melo</title>
+  <meta property="og:title" content="Aleph Melo">
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="http://alephmelo.github.io">
+  <meta property="og:description" content="Blog about programming/development, python, iOS and a bunch of others cool stuffs by Aleph Melo">
+  <meta property="og:site_name" content="Aleph Melo">
+  <meta name="description" content="Blog about programming/development, python, iOS and a bunch of others cool stuffs by Aleph Melo">
+<meta name="keywords" content="dev, software, programming, blog, python">
 
+<link rel="stylesheet" href="/static/css/layouts/pure-min.css">
+<link rel="stylesheet" href="/static/pygments.css">
 <!--[if lte IE 8]>
-  
-    <link rel="stylesheet" href="./static/css/layouts/grids-responsive-old-ie-min.css">
-  
+    <link rel="stylesheet" href="/static/css/layouts/grids-responsive-old-ie-min.css">
 <![endif]-->
 <!--[if gt IE 8]><!-->
-  
-    <link rel="stylesheet" href="./static/css/layouts/grids-responsive-min.css">
-  
+    <link rel="stylesheet" href="/static/css/layouts/grids-responsive-min.css">
 <!--<![endif]-->  
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="./static/css/layouts/blog-old-ie.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="./static/css/layouts/blog.css">
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="/static/css/layouts/blog-old-ie.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="/static/css/layouts/blog.css">
     <!--<![endif]-->
 </head>
 <body>
@@ -34,14 +37,6 @@
           
           <nav class="nav">
               <ul class="nav-list">
-              <!--
-                  <li class="nav-item">
-                      <a class="pure-button" href="/projects">Projects</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="pure-button" href="/about">About</a>
-                  </li>
-              !-->
                   <li class="nav-item">
                       <a class="pure-button" href="http://twitter.com/Alephbreno">Twitter</a>
                   </li>
@@ -50,16 +45,6 @@
                   </li>
               </ul>
           </nav>
-      <!--    
-      <div class="footer">
-          <div class="pure-menu pure-menu-horizontal">
-              <ul>
-                  <li class="pure-menu-item"><a href="http://alephmelo.github.io/about" class="pure-menu-link">About</a></li>
-                  <li class="pure-menu-item"><a href="http://twitter.com/Alephbreno" class="pure-menu-link">Twitter</a></li>
-                  <li class="pure-menu-item"><a href="http://github.com/alephmelo" class="pure-menu-link">GitHub</a></li>
-              </ul>
-          </div>
-      </div> !-->
       </div>
   </div>
   <div class="content pure-u-1 pure-u-md-3-4">
@@ -72,7 +57,7 @@
     <section class="post">
         <header class="post-header">
             
-            <h2 class="post-title"><a href="./command-line-basics/">#PythonMap - Command-Line Basics</a></h2>
+            <h2 class="post-title"><a href="/command-line-basics/">#PythonMap - Command-Line Basics</a></h2>
             
             <p class="post-meta">
                 By 
@@ -126,4 +111,16 @@
   ga('send', 'pageview');
 
 </script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </html>
