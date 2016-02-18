@@ -3,6 +3,6 @@ My personal Lektor-powered blog.
 
 ## To-do
 - [x] Fix size
-- [ ] First post
+- [x] First post
 - [x] Analytics plugin
 - [ ] Social plugins
