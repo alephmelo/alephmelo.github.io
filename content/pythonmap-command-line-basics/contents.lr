@@ -3,21 +3,14 @@ title: #PythonMap - Command-Line Basics
 author: Aleph Melo
 ---
 body:
-
-# Introduction
-First things first... what is Python Map? Who am I? Where are we going? Well, Python Map is an idea of path of small subjects that a Full Stack Developer should feel comfortable in working with or at least have had a small glance over the subject. But you might be wondering who said it, where it is written that you should follow this path to become a full stack python developer and so forth. One of the many great things about open-source is that the sense of community working for the greater good. People with a huge passion in developing cool things, and this answers the second question, I'm one of those people, passionate about my work, learning, teaching and building cool stuff. So this is where we're going, I'll try to cover in details each of the subjects among the Python Map. I'm a huge fan the philosophy learning by teaching. 
-
-A small disclaimer, I'm not saying that the Python Map it is the only way to become a Full Stack Python developer, the amount of good stuff and subjects out there is tremendous, and feel free to contribute with new topics, fix bugs, english grammar (since it's my second language).
-
-**So let's cut to the chase.**
-
 # Command-line arguments
 Python has a really handy module called `sys`, using this module we can access to any command-line
 arguments via the `sys.argv` which returns a list of the arguments given. 
 
-*`test_file.py`*
+
 ```python
-#!/usr/bin/python3
+# file: test_file.py
+
 import sys
 
 print('Argument list: ', str(sys.argv))
@@ -28,6 +21,46 @@ $ python3 test_file.py one two three
 ('Argument list: ', "['test_file.py', 'one', 'two', 'three']")
 ('Argument count: ', 4)
 ```
+
+Note that the first `sys.argv[0]` argument is the file itself.
+
+# Example
+Say you want to open a file and print its content via command-line argument.
+```python
+# file: example.py
+
+import sys
+
+print(open(sys.argv[1], 'r').read()) if len(sys.argv) > 1 else print('You did not pass an argument.')
+```
+Create a file called `text_sample.txt` with any text in it and the execute our example.
+```
+$ python3 example.py text_sample.txt
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+```
+So let's breakdown the code piece by piece, don't be afraid of this kind of inline conditional. This conditional expression (sometimes called a “ternary operator”) have the lowest priority of all Python operations, but that is not the topic today, we'll get to this on another day.
+```python
+print(open(sys.argv[1], 'r').read())
+```
+```
+>>> type(open(sys.argv[1], 'r').read())
+<class 'str'>
+```
+Since `open().read()`in this case returns a `<str>` we can pass it directly to `print()` as parameter. But this piece of code is only assigned if `len(sys.argv) > 1` which means:
+```
+$ python3 <file.py> <file.txt>
+```
+The `else` part is pretty much self-explanatory. 
+
+This kind of parsing is pretty raw, for a better parsing and options there is other python bult-in module called `argparse` that provides many more options and easy ways to parse arguments.
+
+# Recommended reading
+
+- [Conditional Expressions](https://docs.python.org/3.5/reference/expressions.html#conditional-expressions)
+- [Argparse Docs](https://docs.python.org/3/library/argparse.html)
+- [System-specific parameters and functions](https://docs.python.org/3.5/library/sys.html?highlight=sys.argv#sys.argv)
 ---
 pub_date: 2016-02-15
 ---
