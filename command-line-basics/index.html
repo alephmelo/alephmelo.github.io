@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+<title>Aleph Melo</title>
+<link rel="stylesheet" href="../static/css/layouts/pure-min.css">
+<link rel="stylesheet" href="../static/pygments.css">
+
+<!--[if lte IE 8]>
+  
+    <link rel="stylesheet" href="../static/css/layouts/grids-responsive-old-ie-min.css">
+  
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  
+    <link rel="stylesheet" href="../static/css/layouts/grids-responsive-min.css">
+  
+<!--<![endif]-->  
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="../static/css/layouts/blog-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="../static/css/layouts/blog.css">
+    <!--<![endif]-->
+</head>
+<body>
+<div id="layout" class="pure-g">
+  <div class="sidebar pure-u-1 pure-u-md-1-4">
+      <div class="header">
+          <h1 class="brand-title"><a href="/" id="home-title">Aleph Melo</a></h1>
+          <h2 class="brand-tagline">developer</h2>
+          
+          <nav class="nav">
+              <ul class="nav-list">
+              <!--
+                  <li class="nav-item">
+                      <a class="pure-button" href="/projects">Projects</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="pure-button" href="/about">About</a>
+                  </li>
+              !-->
+                  <li class="nav-item">
+                      <a class="pure-button" href="http://twitter.com/Alephbreno">Twitter</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="pure-button" href="http://github.com/alephmelo">GitHub</a>
+                  </li>
+              </ul>
+          </nav>
+      <!--    
+      <div class="footer">
+          <div class="pure-menu pure-menu-horizontal">
+              <ul>
+                  <li class="pure-menu-item"><a href="http://alephmelo.github.io/about" class="pure-menu-link">About</a></li>
+                  <li class="pure-menu-item"><a href="http://twitter.com/Alephbreno" class="pure-menu-link">Twitter</a></li>
+                  <li class="pure-menu-item"><a href="http://github.com/alephmelo" class="pure-menu-link">GitHub</a></li>
+              </ul>
+          </div>
+      </div> !-->
+      </div>
+  </div>
+  <div class="content pure-u-1 pure-u-md-3-4">
+  <!-- <h1 class="content-subhead">Recent posts</h1> !-->
+  
+  
+
+<div class="posts">
+    <section class="post">
+        <header class="post-header">
+            
+            <h2 class="post-title">#PythonMap - Command-Line Basics</h2>
+            
+            <p class="post-meta">
+                By 
+                <a href="https://twitter.com/Alephbreno" class="post-author">Aleph Melo</a>
+                 on 2016-02-15 under 
+                 
+                 <a class="post-tag post-tag-python" href="#">python</a>
+                 
+                 <a class="post-tag post-tag-dev" href="#">dev</a>
+                 
+                 <a class="post-tag post-tag-python-map" href="#">python-map</a>
+                 
+            </p>
+        </header>
+        
+        <div class="post-description">
+         
+            <p>
+                <h1>Command-line arguments</h1>
+<p>Python has a really handy module called <code>sys</code>, using this module we can access to any command-line
+arguments via the <code>sys.argv</code> which returns a list of the arguments given.</p>
+<div class="highlight"><pre><span></span><span class="c1"># file: test_file.py</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Argument list: &#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Argument count: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">))</span>
+</pre></div>
+<pre><code>$ python3 test_file.py one two three
+('Argument list: ', "['test_file.py', 'one', 'two', 'three']")
+('Argument count: ', 4)
+</code></pre>
+<p>Note that the first <code>sys.argv[0]</code> argument is the file itself.</p>
+<h1>Example</h1>
+<p>Say you want to open a file and print its content via command-line argument.</p>
+<div class="highlight"><pre><span></span><span class="c1"># file: example.py</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;You did not pass an argument.&#39;</span><span class="p">)</span>
+</pre></div>
+<p>Create a file called <code>text_sample.txt</code> with any text in it and the execute our example.</p>
+<pre><code>$ python3 example.py text_sample.txt
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+</code></pre>
+<p>So let's breakdown the code piece by piece, don't be afraid of this kind of inline conditional. This conditional expression (sometimes called a “ternary operator”) have the lowest priority of all Python operations, but that is not the topic today, we'll get to this on another day.</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+<pre><code>&gt;&gt;&gt; type(open(sys.argv[1], 'r').read())
+&lt;class 'str'&gt;
+</code></pre>
+<p>Since <code>open().read()</code>in this case returns a <code>&lt;str&gt;</code> we can pass it directly to <code>print()</code> as parameter. But this piece of code is only assigned if <code>len(sys.argv) &gt; 1</code> which means:</p>
+<pre><code>$ python3 &lt;file.py&gt; &lt;file.txt&gt;
+</code></pre>
+<p>The <code>else</code> part is pretty much self-explanatory.</p>
+<p>This kind of parsing is pretty raw, for a better parsing and options there is other python bult-in module called <code>argparse</code> that provides many more options and easy ways to parse arguments.</p>
+<p>That's it, this was my first post, don't worry I'll try to improve and bring some really cool subjects. If you see an error (specially grammar, since english is my second language), don't hesitate to bring it up and comment so I can fix it. And thank you for reading, cheers.</p>
+<h1>Recommended reading</h1>
+<ul>
+<li><a href="https://docs.python.org/3.5/reference/expressions.html#conditional-expressions">Conditional Expressions</a></li>
+<li><a href="https://docs.python.org/3/library/argparse.html">Argparse Docs</a></li>
+<li><a href="https://docs.python.org/3.5/library/sys.html?highlight=sys.argv#sys.argv">System-specific parameters and functions</a></li>
+</ul>
+
+            </p>
+        
+        </div>
+    </section>
+</div>
+
+  <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/pythonmap-command-line-basics"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//alephmelo.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
+
+  </div>
+
+</div>
+</body>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73769265-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>

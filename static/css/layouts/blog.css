@@ -58,9 +58,17 @@ pre {
     font-family: 'monaco';
     font-size: 0.8em;
     background-color: #272822;
+    border-radius: 6px;
     padding: 8px;
-    line-height: 130%;
+    line-height: 140%;
 }
+
+pre code {
+    font-family: 'monaco';
+    background-color: #272822;
+    color: #fff;
+}
+
 
 /* LAYOUT CSS */
 .pure-img-responsive {
@@ -193,6 +201,9 @@ pre {
     }
     .post-tag-mobile {
         background: #df2d4f;
+    }
+    .post-tag-python-map {
+        background: #FB523C;
     }
 
 .post-images {
