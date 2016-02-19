@@ -6,3 +6,4 @@ My personal Lektor-powered blog.
 - [x] First post
 - [x] Analytics plugin
 - [x] Social plugins
+- [x] Meta-tags
