@@ -7,3 +7,4 @@ My personal Lektor-powered blog.
 - [x] Analytics plugin
 - [x] Social plugins
 - [x] Meta-tags
+- [ ] Blog under /blog/
