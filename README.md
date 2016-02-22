@@ -8,3 +8,6 @@ My personal Lektor-powered blog.
 - [x] Social plugins
 - [x] Meta-tags
 - [ ] Blog under /blog/
+- [ ] About page
+- [ ] Resumé
+- [ ] Front-page
