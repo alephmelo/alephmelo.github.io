@@ -3,6 +3,9 @@ title: #PythonMap - Command-Line Basics
 author: Aleph Melo
 ---
 body:
+# The Python Map
+Here we begin our journey through the Full Stack Python wonderlands.
+<div class="python-map"><img src="pymap.png"></div>
 
 # Command-line arguments
 Python has a really handy module called `sys`, using this module we can access to any command-line
