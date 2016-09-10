@@ -9,39 +9,95 @@ summary:
 Learn how to quickly setup a Django project using a very lightweight file and how to use a backend service to respond requests from users using a dead simple machine learning classifier project. 
 ---
 body:
-# Editorial
+# Table of Contents
+- [Editorial](#Editorial)
+- [Requirements](#Requirements)
+- [What is Django Anyway?](#What is Django Anyway?)
+- [Cool! How Does it Work?](#Cool! How Does it Work?)
+    - [Request Lifecycle and Django Architecture](#Request Lifecycle and Django Architecture)
+- [Enough! Let's Code](#Enough! Let's Code)
+    - [Our Application](#Our Application)
+        - [Our First View](#Our First View)
+        - [Routing Views](#Routing Views)
+
+# 1. Editorial
 This article aims to provide a quick start on how to setup and understand the basics premises about the Django framework, to give you a glimpse about how things work under the hood, and a bonus feature is that we are going to build a simple machine learning feature using a classifier, one of the basics concepts of machine learning, this way in our toy example it might help you understand how a backend service interacts with the client.
 
-# Requirements
+# 2. Requirements
 Some Python coding is always welcome, but even if you don’t have Python background but have some programming in general you should be fine too, since Python syntax is very clear and concise. Libraries that we need in order to follow this article:
 
 * Numpy
 * Django
 * Scikit-learn
 
-# What is Django Anyway?
+# 3. What is Django Anyway?
 Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
 
 In a nutshell, Django takes care of all HTTP requests sent from clients using your app and handle the HTTP responses, that’s it. What to do and how to treat the data in the middle of this process is totally up to you, my dearest. This is what freedom looks like!
 
 The framework already comes with tons of great features that we can use, like: built-in ORM (Object-Relational Mapper), powerful url dispatcher, several forms of validation, built-in template system, l10n (internationalization), cache system, auth handlers, web server for dev, awesome admin interface and so on.
 
-# Cool! How Does it Work?
+# 4. Cool! How Does it Work?
 For us to begin understanding how Django works first we need to understand a very common Design Pattern in web development that is called `MVC` which stands for `Model-View-Controller`. Its concepts are very simple and intuitive. The `Model` takes care of data, where your data structure will be defined. The `View` contains the elements in the user interface. The `Controller` is the bridge between the model and the view. All good so far? Great. 
 
 But hold your horses that’s not how it works yet. Django uses a similar version of this design pattern called `MVT` which stands for `Model-View-Template`. Whereas the `Model` is the same as in `MVC`. The `View` now defines what and how data should be represented and always return an `HTTP Response`. The `Template` renders the data itself in the format you might want (HTML, PDF, XHTML, etc).
 
 Let's take a closer look on how long a request lives and the paths it may take in life.
 
-## Request Lifecycle
+## 4.1. Request Lifecycle and Django Architecture
+<div class="post-image"><img src="django-arch.png"></div>
 In the image above we see clearly the path that request sent by a client might take during its life. 
 
-Let’s say a client enters at `www.example.com/index`, in Django the following might happen: the request comes to the URL dispatcher that it’s liked with a `Python` function (`View`), if the request needs something from the database (`Model`), the function would go there retrieve what it needs to be retrieved and finally the response would be returned to the user via `Template` a.k.a. frontend stuff like HTML. I hope this gets clearer when we got to the practical details.  
-<div class="post-image"><img src="django-arch.png"></div>
+Let’s say a client enters at `www.example.com/index`, in Django the following might happen: the request comes to the URL dispatcher that it’s liked with a `Python` function (`View`), if the request needs something from the database (`Model`), the function would go there retrieve what it needs to be retrieved and finally the response would be returned to the user via `Template` a.k.a. frontend stuff like HTML. I hope this gets clearer when we got to the practical details.
 
-# 
+# 5. Enough! Let's Code
+When we start a new project using `django-admin startproject project_name` and then creating our application by running `python manage.py startapp app_name`, we end up with a structure like this:
+
+```
+$ tree my_project 
+my_project
+├── example_app
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+├── manage.py
+└── my_project
+    ├── __init__.py
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py
+```
+Our project name is `my_project` and our app is `example_app`. This sctructure is awesome when you're building real world applications and should be followed, but in our toy example we're going to use a minified, single-file version of a Django application, remember all the freedom?
+
+## 5.1. Our Application
+We'll create a file called `hello.py` and put the minimum settings in it in order to run our application.
+
+<code data-gist-id="4cbc547111091c06861c521918942447" data-gist-line="1-33"></code>
+
+### 5.1.1. Our First View
+As I said earlier, django is a master in handling http requests, so let's write our first `view` receiving a request and returning an http response. A view can be either a Python function or class in cases like class-based views, but we we'll use simple functions to create our views.
+
+<code data-gist-id="4cbc547111091c06861c521918942447" data-gist-line="36-40"></code>
+
+The code is pretty straightforward, we define a function called `index` with a parameter request and returning an `HttpResponse` object with a string, that's it! But how and when Django knows to call this view? 
+
+### 5.1.2. Routing Views
+Django makes good use of regular expressions (like many others web frameworks out there) to map a certain URL to a view. If you're familiar with `Flask`, another great web framework mainly used to build APIs, Flask uses Python decorators `@mydecorator()` to map URLs. In Django, we use a variable called `urlpatterns` which can be a list or a tuple of URLs regexes and view names. 
+
+<code data-gist-id="4cbc547111091c06861c521918942447" data-gist-line="41-46"></code>
+
+Let me explaing what is happening here, first we import a function called `url` from django with two arguments, the `regex` and the name of the view we defined earlier, simple, right? The `r` in front the regex string tells Python to don't interpretate escape chars, it tells this is a `raw` string, followed by `^` that marks where the line starts and a `$` telling where to end. So when a user requests for `www.example.com/index`, the regex matches the `/index` part and then calls the view related to it, in our case the Python function called `index`.
+
+And lastly in need to add more settings so Django will know how to perform some command line arguments.
+<code data-gist-id="4cbc547111091c06861c521918942447" data-gist-line="47-53"></code>
+
+
 ---
-
 tags:
 
 python
