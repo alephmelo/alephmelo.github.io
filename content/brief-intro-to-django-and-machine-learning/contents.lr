@@ -24,6 +24,17 @@ Django is a high-level Python Web framework that encourages rapid development an
 
 In a nutshell, Django takes care of all HTTP requests sent from clients using your app and handle the HTTP responses, that’s it. What to do and how to treat the data in the middle of this process is totally up to you, my dearest. This is what freedom looks like!
 
+The framework already comes with tons of great features that we can use, like: built-in ORM (Object-Relational Mapper), powerful url dispatcher, several forms of validation, built-in template system, l10n (internationalization), cache system, auth handlers, web server for dev, awesome admin interface and so on.
+
+# Cool! How Does it Work?
+For us to begin understanding how Django works first we need to understand a very common Design Pattern in web development that is called `MVC` which stands for `Model-View-Controller`. Its concepts are very simple and intuitive. The `Model` takes care of data, where your data structure will be defined. The `View` contains the elements in the user interface. The `Controller` is the bridge between the model and the view. All good so far? Great. 
+
+But hold your horses that’s not how it works yet. Django uses a similar version of this design pattern called `MVT` which stands for `Model-View-Template`. Whereas the `Model` is the same as in `MVC`. The `View` now defines what and how data should be represented and always return an `HTTP Response`. The `Template` renders the data itself in the format you might want (HTML, PDF, XHTML, etc).
+
+Let's take a closer look on how long a request lives and the paths it may take in life.
+
+## Request Lifecycle
+<div class="post-image"><img src="django-arch.png"></div>
 ---
 
 tags:
