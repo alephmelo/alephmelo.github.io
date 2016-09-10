@@ -1,0 +1,17 @@
+title: Brief Intro to Django and Machine Learning
+---
+author: Aleph Melo
+---
+pub_date: 2016-09-09
+---
+summary:
+
+Learn how to quickly setup a Django project using a very lightweight file and how to use a backend service to respond requests from users using a dead simple machine learning classifier project. 
+---
+tags:
+
+python
+data-science
+dev
+---
+twitter_handle: Alephbreno
