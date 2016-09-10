@@ -37,6 +37,8 @@
 <!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="/static/css/layouts/blog.css">
     <!--<![endif]-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.4/gist-embed.min.js"></script>
 </head>
 <body>
 <div id="layout" class="pure-g">
@@ -89,27 +91,79 @@
         <div class="post-description">
          
             <p>
-                <h1>Editorial</h1>
+                <h1>Table of Contents</h1>
+<ul>
+<li><a href="/brief-intro-to-django-and-machine-learning/#Editorial">Editorial</a></li>
+<li><a href="/brief-intro-to-django-and-machine-learning/#Requirements">Requirements</a></li>
+<li><a href="/brief-intro-to-django-and-machine-learning/#What is Django Anyway?">What is Django Anyway?</a></li>
+<li><a href="/brief-intro-to-django-and-machine-learning/#Cool! How Does it Work?">Cool! How Does it Work?</a><ul>
+<li><a href="/brief-intro-to-django-and-machine-learning/#Request Lifecycle and Django Architecture">Request Lifecycle and Django Architecture</a></li>
+</ul>
+</li>
+<li><a href="/brief-intro-to-django-and-machine-learning/#Enough! Let&#39;s Code">Enough! Let's Code</a><ul>
+<li><a href="/brief-intro-to-django-and-machine-learning/#Our Application">Our Application</a><ul>
+<li><a href="/brief-intro-to-django-and-machine-learning/#Our First View">Our First View</a></li>
+<li><a href="/brief-intro-to-django-and-machine-learning/#Routing Views">Routing Views</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1>1. Editorial</h1>
 <p>This article aims to provide a quick start on how to setup and understand the basics premises about the Django framework, to give you a glimpse about how things work under the hood, and a bonus feature is that we are going to build a simple machine learning feature using a classifier, one of the basics concepts of machine learning, this way in our toy example it might help you understand how a backend service interacts with the client.</p>
-<h1>Requirements</h1>
+<h1>2. Requirements</h1>
 <p>Some Python coding is always welcome, but even if you don’t have Python background but have some programming in general you should be fine too, since Python syntax is very clear and concise. Libraries that we need in order to follow this article:</p>
 <ul>
 <li>Numpy</li>
 <li>Django</li>
 <li>Scikit-learn</li>
 </ul>
-<h1>What is Django Anyway?</h1>
+<h1>3. What is Django Anyway?</h1>
 <p>Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.</p>
 <p>In a nutshell, Django takes care of all HTTP requests sent from clients using your app and handle the HTTP responses, that’s it. What to do and how to treat the data in the middle of this process is totally up to you, my dearest. This is what freedom looks like!</p>
 <p>The framework already comes with tons of great features that we can use, like: built-in ORM (Object-Relational Mapper), powerful url dispatcher, several forms of validation, built-in template system, l10n (internationalization), cache system, auth handlers, web server for dev, awesome admin interface and so on.</p>
-<h1>Cool! How Does it Work?</h1>
+<h1>4. Cool! How Does it Work?</h1>
 <p>For us to begin understanding how Django works first we need to understand a very common Design Pattern in web development that is called <code>MVC</code> which stands for <code>Model-View-Controller</code>. Its concepts are very simple and intuitive. The <code>Model</code> takes care of data, where your data structure will be defined. The <code>View</code> contains the elements in the user interface. The <code>Controller</code> is the bridge between the model and the view. All good so far? Great.</p>
 <p>But hold your horses that’s not how it works yet. Django uses a similar version of this design pattern called <code>MVT</code> which stands for <code>Model-View-Template</code>. Whereas the <code>Model</code> is the same as in <code>MVC</code>. The <code>View</code> now defines what and how data should be represented and always return an <code>HTTP Response</code>. The <code>Template</code> renders the data itself in the format you might want (HTML, PDF, XHTML, etc).</p>
 <p>Let's take a closer look on how long a request lives and the paths it may take in life.</p>
-<h2>Request Lifecycle</h2>
-<p>In the image above we see clearly the path that request sent by a client might take during its life.</p>
+<h2>4.1. Request Lifecycle and Django Architecture</h2>
+<p><div class="post-image"><img src="django-arch.png"></div>
+In the image above we see clearly the path that request sent by a client might take during its life.</p>
 <p>Let’s say a client enters at <code>www.example.com/index</code>, in Django the following might happen: the request comes to the URL dispatcher that it’s liked with a <code>Python</code> function (<code>View</code>), if the request needs something from the database (<code>Model</code>), the function would go there retrieve what it needs to be retrieved and finally the response would be returned to the user via <code>Template</code> a.k.a. frontend stuff like HTML. I hope this gets clearer when we got to the practical details.</p>
-<div class="post-image"><img src="django-arch.png"></div><h1> </h1>
+<h1>5. Enough! Let's Code</h1>
+<p>When we start a new project using <code>django-admin startproject project_name</code> and then creating our application by running <code>python manage.py startapp app_name</code>, we end up with a structure like this:</p>
+<pre><code>$ tree my_project 
+my_project
+├── example_app
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+├── manage.py
+└── my_project
+    ├── __init__.py
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py
+</code></pre>
+<p>Our project name is <code>my_project</code> and our app is <code>example_app</code>. This sctructure is awesome when you're building real world applications and should be followed, but in our toy example we're going to use a minified, single-file version of a Django application, remember all the freedom?</p>
+<h2>5.1. Our Application</h2>
+<p>We'll create a file called <code>hello.py</code> and put the minimum settings in it in order to run our application.</p>
+<p><code data-gist-id="4cbc547111091c06861c521918942447" data-gist-line="1-33"></code></p>
+<h3>5.1.1. Our First View</h3>
+<p>As I said earlier, django is a master in handling http requests, so let's write our first <code>view</code> receiving a request and returning an http response. A view can be either a Python function or class in cases like class-based views, but we we'll use simple functions to create our views.</p>
+<p><code data-gist-id="4cbc547111091c06861c521918942447" data-gist-line="36-40"></code></p>
+<p>The code is pretty straightforward, we define a function called <code>index</code> with a parameter request and returning an <code>HttpResponse</code> object with a string, that's it! But how and when Django knows to call this view?</p>
+<h3>5.1.2. Routing Views</h3>
+<p>Django makes good use of regular expressions (like many others web frameworks out there) to map a certain URL to a view. If you're familiar with <code>Flask</code>, another great web framework mainly used to build APIs, Flask uses Python decorators <code>@mydecorator()</code> to map URLs. In Django, we use a variable called <code>urlpatterns</code> which can be a list or a tuple of URLs regexes and view names.</p>
+<p><code data-gist-id="4cbc547111091c06861c521918942447" data-gist-line="41-46"></code></p>
+<p>Let me explaing what is happening here, first we import a function called <code>url</code> from django with two arguments, the <code>regex</code> and the name of the view we defined earlier, simple, right? The <code>r</code> in front the regex string tells Python to don't interpretate escape chars, it tells this is a <code>raw</code> string, followed by <code>^</code> that marks where the line starts and a <code>$</code> telling where to end. So when a user requests for <code>www.example.com/index</code>, the regex matches the <code>/index</code> part and then calls the view related to it, in our case the Python function called <code>index</code>.</p>
+<p>And lastly in need to add more settings so Django will know how to perform some command line arguments.
+<code data-gist-id="4cbc547111091c06861c521918942447" data-gist-line="47-53"></code></p>
 
             </p>
         
