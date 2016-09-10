@@ -34,7 +34,12 @@ But hold your horses that’s not how it works yet. Django uses a similar versio
 Let's take a closer look on how long a request lives and the paths it may take in life.
 
 ## Request Lifecycle
+In the image above we see clearly the path that request sent by a client might take during its life. 
+
+Let’s say a client enters at `www.example.com/index`, in Django the following might happen: the request comes to the URL dispatcher that it’s liked with a `Python` function (`View`), if the request needs something from the database (`Model`), the function would go there retrieve what it needs to be retrieved and finally the response would be returned to the user via `Template` a.k.a. frontend stuff like HTML. I hope this gets clearer when we got to the practical details.  
 <div class="post-image"><img src="django-arch.png"></div>
+
+# 
 ---
 
 tags:
