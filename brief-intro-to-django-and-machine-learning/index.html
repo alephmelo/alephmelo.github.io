@@ -107,7 +107,10 @@
 <p>But hold your horses that’s not how it works yet. Django uses a similar version of this design pattern called <code>MVT</code> which stands for <code>Model-View-Template</code>. Whereas the <code>Model</code> is the same as in <code>MVC</code>. The <code>View</code> now defines what and how data should be represented and always return an <code>HTTP Response</code>. The <code>Template</code> renders the data itself in the format you might want (HTML, PDF, XHTML, etc).</p>
 <p>Let's take a closer look on how long a request lives and the paths it may take in life.</p>
 <h2>Request Lifecycle</h2>
-<div class="post-image"><img src="django-arch.png"></div>
+<p>In the image above we see clearly the path that request sent by a client might take during its life.</p>
+<p>Let’s say a client enters at <code>www.example.com/index</code>, in Django the following might happen: the request comes to the URL dispatcher that it’s liked with a <code>Python</code> function (<code>View</code>), if the request needs something from the database (<code>Model</code>), the function would go there retrieve what it needs to be retrieved and finally the response would be returned to the user via <code>Template</code> a.k.a. frontend stuff like HTML. I hope this gets clearer when we got to the practical details.</p>
+<div class="post-image"><img src="django-arch.png"></div><h1> </h1>
+
             </p>
         
         </div>
