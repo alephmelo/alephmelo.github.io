@@ -69,6 +69,10 @@ pre code {
     color: #fff;
 }
 
+code {
+    font-family: 'monaco',monospace;
+    font-size: 1.15em;
+}
 
 /* LAYOUT CSS */
 .pure-img-responsive {
@@ -184,6 +188,9 @@ pre code {
     color: #222;
     margin-bottom: 0.2em;
 
+}
+.post-image {
+    text-align: center;
 }
 .post-meta {
     font-family: 'sinkin-light';

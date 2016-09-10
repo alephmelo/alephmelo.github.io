@@ -101,7 +101,13 @@
 <h1>What is Django Anyway?</h1>
 <p>Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.</p>
 <p>In a nutshell, Django takes care of all HTTP requests sent from clients using your app and handle the HTTP responses, that’s it. What to do and how to treat the data in the middle of this process is totally up to you, my dearest. This is what freedom looks like!</p>
-
+<p>The framework already comes with tons of great features that we can use, like: built-in ORM (Object-Relational Mapper), powerful url dispatcher, several forms of validation, built-in template system, l10n (internationalization), cache system, auth handlers, web server for dev, awesome admin interface and so on.</p>
+<h1>Cool! How Does it Work?</h1>
+<p>For us to begin understanding how Django works first we need to understand a very common Design Pattern in web development that is called <code>MVC</code> which stands for <code>Model-View-Controller</code>. Its concepts are very simple and intuitive. The <code>Model</code> takes care of data, where your data structure will be defined. The <code>View</code> contains the elements in the user interface. The <code>Controller</code> is the bridge between the model and the view. All good so far? Great.</p>
+<p>But hold your horses that’s not how it works yet. Django uses a similar version of this design pattern called <code>MVT</code> which stands for <code>Model-View-Template</code>. Whereas the <code>Model</code> is the same as in <code>MVC</code>. The <code>View</code> now defines what and how data should be represented and always return an <code>HTTP Response</code>. The <code>Template</code> renders the data itself in the format you might want (HTML, PDF, XHTML, etc).</p>
+<p>Let's take a closer look on how long a request lives and the paths it may take in life.</p>
+<h2>Request Lifecycle</h2>
+<div class="post-image"><img src="django-arch.png"></div>
             </p>
         
         </div>
