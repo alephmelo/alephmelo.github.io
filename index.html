@@ -1,1 +1,175 @@
-Hello there.
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <title>about:alephmelo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" >
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <style>
+    article figure p img {
+      max-height: 128px;
+    }
+    #avatar {
+      background-image: url('./avatar.jpg');
+
+      width: 150px;
+      height: 150px;
+
+      /* fill the container, preserving aspect ratio, and cropping to fit */
+      background-size: cover;
+
+      /* center the image vertically and horizontally */
+      background-position: top center;
+
+      /* round the edges to a circle with border radius 1/2 container size */
+      border-radius: 50%;
+    }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+      </div>
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title">
+            Hi! I'm Aleph
+          </h1>
+
+          <div class="container" id="avatar"></div>
+
+          <div class="container column is-6">
+            <p>
+              I'm a software developer based in Berlin and currently working at Auto1 Group.
+            </p>
+            <p> Made in Brazil </p>
+          </div>
+
+          <div class="container">
+            <a class="button" href="https://github.com/alephmelo" target="_blank" >
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>Github</span>
+            </a>
+            <a class="button" href="https://twitter.com/Alephbreno" target="_blank" >
+              <span class="icon">
+                <i class="fab fa-twitter"></i>
+              </span>
+              <span>Twitter</span>
+            </a>
+            <a class="button" href="https://www.linkedin.com/in/alephmelo" target="_blank" >
+              <span class="icon">
+                <i class="fab fa-linkedin"></i>
+              </span>
+              <span>Linkedin</span>
+            </a>
+            <a class="button" href="mailto:alephmelo@icloud.com" target="_blank" >
+              <span class="icon">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </span>
+              <span>E-mail</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container column is-8 is-offset-2 is-centered">
+        <div class="columns">
+          <div class="column">
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-128x128">
+                  <img alt="Ruby" src="./logos/ruby.svg">
+                </p>
+              </figure>
+
+              <div class="media-content">
+                <div class="content">
+                  <h4> Ruby </h4>
+                  <p>
+                    Ruby was the first language that I felt like home. After years of using Java/JavaEE, using Ruby
+                    felt like a breath of fresh air.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-128x128">
+                  <img alt="Elixir" src="./logos/elixir.svg">
+                </p>
+              </figure>
+
+              <div class="media-content">
+                <div class="content">
+                  <h4> Elixir </h4>
+                  <p>
+                    Using Elixir mostly for APIs that need fast response time. Amazing language, amazing community.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-128x128">
+                  <img alt="React" src="./logos/react.svg">
+                </p>
+              </figure>
+
+              <div class="media-content">
+                <div class="content">
+                  <h4> React </h4>
+                  <p>
+                    After a couple of small projects using Elm, I decided to try React one more time and found a very concise
+                    and complete documentation with great examples.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-128x128">
+                  <img alt="Clojure" src="./logos/clojure.svg">
+                </p>
+              </figure>
+
+              <div class="media-content">
+                <div class="content">
+                  <h4> Clojure </h4>
+                  <p>
+                    ❤️ Lisp
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      <div class="container column is-8 is-offset-2 is-centered">
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="content has-text-centered">
+          Made with
+          <span class="bd-emoji">❤️</span>
+          using Bulma and Vim
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
